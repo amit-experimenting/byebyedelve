@@ -275,6 +275,37 @@
       line-height: 1.65;
     }
 
+    .cost-breakdown {
+      margin: 16px 0 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      border-bottom: 1px solid rgba(229,62,62,0.1);
+      padding-bottom: 6px;
+    }
+
+    .cost-label { color: #cbd5e1; }
+
+    .cost-pct {
+      font-weight: 700;
+      color: #fca5a5;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cost-footer {
+      font-size: 0.82rem !important;
+      color: #86efac !important;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
     /* ── WHO WE SERVE ── */
     .serve-section {
       background: var(--navy);
@@ -621,6 +652,23 @@
           <div class="icon">💸</div>
           <h3>The bill comes due</h3>
           <p>Scramble-mode remediation mid-deal costs 10x what doing it right would have. Plus the reputational hit of a customer discovering your gaps before you did.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">🧾</div>
+          <h3>Hidden costs no one tallied</h3>
+          <p>You've been paying separately for compliance software, pen testing, external auditors, tool configuration, org time, and DDQs — each billed by a different vendor. That fragmented spend adds up to far more than one honest subscription that does all of it.</p>
+          <div class="cost-breakdown">
+            <div class="cost-row"><span class="cost-label">GRC Platform</span><span class="cost-pct">23%</span></div>
+            <div class="cost-row"><span class="cost-label">Audit Support &amp; Auditor Fee</span><span class="cost-pct">24%</span></div>
+            <div class="cost-row"><span class="cost-label">Managed Security &amp; Compliance</span><span class="cost-pct">35%</span></div>
+            <div class="cost-row"><span class="cost-label">Vulnerability Assessment &amp; Pen Test</span><span class="cost-pct">18%</span></div>
+          </div>
+          <p class="cost-footer">Konfirmity bundles all of this — reported monthly, one subscription.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">🎯</div>
+          <h3>Pen tests that don't actually test anything</h3>
+          <p>Most compliance vendors outsource a lightweight scan and call it a penetration test. Konfirmity's AI pen test agent is <strong style="color:#fca5a5">ranked #16 on HackerOne</strong> — and we have ethical hackers on roll actively safeguarding scaled companies. Real adversarial testing. Not a checkbox.</p>
         </div>
       </div>
     </div>
