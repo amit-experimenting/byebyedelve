@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bye Bye Delve — Real Security. Real Compliance.</title>
+  <meta name="description" content="If you were a Delve customer, you deserve better. Konfirmity does compliance the right way — security-first, audit-proof, and built to survive real scrutiny." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #e53e3e;
+      --red-dark: #c53030;
+      --green: #22c55e;
+      --green-dark: #16a34a;
+      --navy: #0f172a;
+      --navy-mid: #1e293b;
+      --navy-light: #334155;
+      --slate: #64748b;
+      --white: #ffffff;
+      --off-white: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(229,62,62,0.15) 0%, transparent 70%),
+                  var(--navy);
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(229,62,62,0.4), transparent);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229,62,62,0.12);
+      border: 1px solid rgba(229,62,62,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fc8181;
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+    }
+
+    .badge .dot {
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+
+    h1 .strike {
+      text-decoration: line-through;
+      color: var(--red);
+      opacity: 0.7;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: #94a3b8;
+      max-width: 660px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .hero-sub strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: var(--navy);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    .trust-line {
+      font-size: 0.85rem;
+      color: #475569;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .quote-section {
+      background: rgba(229,62,62,0.06);
+      border-top: 1px solid rgba(229,62,62,0.15);
+      border-bottom: 1px solid rgba(229,62,62,0.15);
+      padding: 60px 24px;
+    }
+
+    .quote-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    blockquote {
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      font-weight: 500;
+      color: #e2e8f0;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    blockquote::before { content: '\201C'; color: var(--red); font-size: 2em; line-height: 0; vertical-align: -0.4em; margin-right: 4px; }
+    blockquote::after  { content: '\201D'; color: var(--red); font-size: 2em; line-height: 0; vertical-align: -0.4em; margin-left: 4px; }
+
+    .quote-attr {
+      font-size: 0.9rem;
+      color: var(--slate);
+    }
+
+    /* ── SHARED SECTION ── */
+    section {
+      padding: 96px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ── PROBLEM ── */
+    .problem-section {
+      background: var(--navy-mid);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .problem-card {
+      background: rgba(229,62,62,0.06);
+      border: 1px solid rgba(229,62,62,0.15);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .problem-card .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .problem-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fca5a5;
+    }
+
+    .problem-card p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+
+    /* ── WHO WE SERVE ── */
+    .serve-section {
+      background: var(--navy);
+    }
+
+    .serve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 56px;
+    }
+
+    .serve-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .serve-card:hover {
+      border-color: rgba(34,197,94,0.4);
+      transform: translateY(-4px);
+    }
+
+    .serve-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), #4ade80);
+    }
+
+    .serve-card .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    .serve-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+
+    .serve-card .card-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(34,197,94,0.1);
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+
+    .serve-card p {
+      font-size: 0.97rem;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .serve-card ul {
+      margin-top: 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .serve-card ul li {
+      font-size: 0.93rem;
+      color: #cbd5e1;
+      padding: 5px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .serve-card ul li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── DIFFERENCE ── */
+    .diff-section {
+      background: var(--navy-mid);
+    }
+
+    .diff-table {
+      margin-top: 56px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .diff-table-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: var(--navy-light);
+      padding: 20px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    .diff-table-header .col-them { color: #fc8181; }
+    .diff-table-header .col-us   { color: var(--green); }
+
+    .diff-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 20px 28px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      align-items: center;
+      gap: 12px;
+    }
+
+    .diff-row:nth-child(even) { background: rgba(255,255,255,0.02); }
+
+    .diff-row .topic {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+
+    .diff-row .them {
+      font-size: 0.9rem;
+      color: #fc8181;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .diff-row .them::before { content: '✗'; font-weight: 700; }
+
+    .diff-row .us {
+      font-size: 0.9rem;
+      color: #86efac;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .diff-row .us::before { content: '✓'; font-weight: 700; }
+
+    /* ── MANIFESTO ── */
+    .manifesto-section {
+      background: var(--navy);
+      text-align: center;
+    }
+
+    .manifesto-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .manifesto-body {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .manifesto-point {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-left: 4px solid var(--green);
+      border-radius: 0 12px 12px 0;
+      padding: 24px 28px;
+      text-align: left;
+    }
+
+    .manifesto-point h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .manifesto-point p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: radial-gradient(ellipse 80% 80% at 50% 100%, rgba(34,197,94,0.1) 0%, transparent 70%),
+                  var(--navy-mid);
+      text-align: center;
+      padding: 100px 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cta-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .cta-sub {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 44px;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--green);
+      color: var(--navy);
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 20px 44px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+    }
+
+    .cta-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(34,197,94,0.25);
+    }
+
+    .cta-note {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #475569;
+    }
+
+    footer a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .diff-table-header,
+      .diff-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .diff-table-header .col-topic { display: none; }
+      .diff-row .topic { font-weight: 700; color: #cbd5e1; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="badge">
+      <span class="dot"></span>
+      Compliance theatre is over
+    </div>
+
+    <h1>
+      <span class="strike">Bye Bye Delve.</span><br />
+      Hello <span class="highlight">Real Security.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Your SOC 2 report was supposed to prove you're secure — not just that you're good at checkbox theatre.<br />
+      <strong>You deserve compliance that survives real scrutiny.</strong>
+    </p>
+
+    <div class="cta-group">
+      <a href="https://konfirmity.com" target="_blank" rel="noopener" class="btn-primary">
+        Switch to Konfirmity →
+      </a>
+      <a href="#who-we-serve" class="btn-secondary">
+        See if we're right for you
+      </a>
+    </div>
+
+    <p class="trust-line">Security-driven compliance for Fintech · Healthcare · Enterprise</p>
+  </section>
+
+  <!-- ── QUOTE ── -->
+  <div class="quote-section">
+    <div class="quote-inner">
+      <blockquote>
+        Compliance theatre has a cost. It just shows up on the revenue line, not the expense line.
+        Hundreds of companies are now walking around with SOC 2 reports that won't survive a single serious customer security review.
+      </blockquote>
+      <p class="quote-attr">— The uncomfortable truth the industry doesn't want to say out loud</p>
+    </div>
+  </div>
+
+  <!-- ── PROBLEM ── -->
+  <section class="problem-section">
+    <div class="section-inner">
+      <p class="section-label">What went wrong</p>
+      <h2 class="section-title">How "compliant in days" became a lie</h2>
+      <p class="section-sub">
+        Platforms like Delve — and frankly, most of this industry — sell speed, not security.
+        The result? Rubber-stamped audits that fool nobody who matters.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="icon">🎭</div>
+          <h3>Compliance as performance</h3>
+          <p>You got a shiny certificate without actually fixing what attackers exploit. The evidence was manufactured, not earned.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">🔍</div>
+          <h3>Enterprise reviews expose you</h3>
+          <p>When a serious Fortune 500 buyer sends their security team into your trust portal, a checkbox compliance report falls apart fast. Deals die. Timelines blow up.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">⚖️</div>
+          <h3>Regulators aren't fooled either</h3>
+          <p>SOC 2 theatre doesn't satisfy FFIEC, HIPAA, or state-level fintech licensing reviews. A real audit finds what the rubber stamp missed — at the worst possible moment.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">💸</div>
+          <h3>The bill comes due</h3>
+          <p>Scramble-mode remediation mid-deal costs 10x what doing it right would have. Plus the reputational hit of a customer discovering your gaps before you did.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO WE SERVE ── -->
+  <section class="serve-section" id="who-we-serve">
+    <div class="section-inner">
+      <p class="section-label">Who we're built for</p>
+      <h2 class="section-title">Security obligations that<br />can't be faked</h2>
+      <p class="section-sub">
+        Some companies can skate by on a rubber-stamped report — until they can't. These three can't afford to find out the hard way.
+      </p>
+
+      <div class="serve-grid">
+
+        <div class="serve-card">
+          <div class="card-icon">🏦</div>
+          <span class="card-tag">Fintech</span>
+          <h3>Financial Services &amp; Fintech</h3>
+          <p>You have licensing obligations that treat security as a legal requirement, not a marketing checkbox. A fake SOC 2 isn't just embarrassing — it's a regulatory event.</p>
+          <ul>
+            <li>FFIEC, GLBA, and state licensing exam readiness</li>
+            <li>PCI-DSS scoping and remediation</li>
+            <li>Investor and banking partner due diligence</li>
+            <li>Continuous controls monitoring — not point-in-time</li>
+          </ul>
+        </div>
+
+        <div class="serve-card">
+          <div class="card-icon">🏥</div>
+          <span class="card-tag">Healthcare</span>
+          <h3>Healthcare &amp; ePHI</h3>
+          <p>You hold some of the most sensitive data in existence. HIPAA isn't a compliance framework — it's a patient protection obligation. We treat it that way.</p>
+          <ul>
+            <li>HIPAA Security Rule gap assessment &amp; remediation</li>
+            <li>ePHI data flow mapping and encryption validation</li>
+            <li>BAA readiness and vendor risk management</li>
+            <li>Breach notification posture and incident response</li>
+          </ul>
+        </div>
+
+        <div class="serve-card">
+          <div class="card-icon">🏢</div>
+          <span class="card-tag">Enterprise Sales</span>
+          <h3>Companies Selling to Enterprise</h3>
+          <p>Your buyer's security team will stress-test your trust portal, vendor questionnaire, and controls evidence. We make sure you pass — because you actually are secure.</p>
+          <ul>
+            <li>SOC 2 Type II that holds up under scrutiny</li>
+            <li>Security questionnaire automation (VSA, SIG, custom)</li>
+            <li>ISO 27001 and FedRAMP readiness</li>
+            <li>Customer-facing trust center built on real controls</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIFFERENCE ── -->
+  <section class="diff-section">
+    <div class="section-inner">
+      <p class="section-label">The difference</p>
+      <h2 class="section-title">Security-driven compliance<br />vs. compliance theatre</h2>
+
+      <div class="diff-table">
+        <div class="diff-table-header">
+          <span class="col-topic">What matters</span>
+          <span class="col-them">Delve &amp; the checkbox crowd</span>
+          <span class="col-us">Konfirmity</span>
+        </div>
+
+        <div class="diff-row">
+          <span class="topic">Audit approach</span>
+          <span class="them">Generate evidence artifacts, move fast</span>
+          <span class="us">Fix controls first, then audit what's real</span>
+        </div>
+        <div class="diff-row">
+          <span class="topic">Timeline promise</span>
+          <span class="them">"Compliant in days" (the report, not the security)</span>
+          <span class="us">Honest timelines tied to your actual risk posture</span>
+        </div>
+        <div class="diff-row">
+          <span class="topic">Ongoing monitoring</span>
+          <span class="them">Point-in-time certification, then silence</span>
+          <span class="us">Continuous controls monitoring across all 7 layers</span>
+        </div>
+        <div class="diff-row">
+          <span class="topic">What you get</span>
+          <span class="them">A report that looks good on a website</span>
+          <span class="us">Security posture that survives real customer review</span>
+        </div>
+        <div class="diff-row">
+          <span class="topic">Regulatory resilience</span>
+          <span class="them">Fails FFIEC, licensing, or HIPAA deep dives</span>
+          <span class="us">Purpose-built for regulated industries</span>
+        </div>
+        <div class="diff-row">
+          <span class="topic">Incident response</span>
+          <span class="them">Not your problem (until it is)</span>
+          <span class="us">We've helped non-clients recover from active attacks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MANIFESTO ── -->
+  <section class="manifesto-section">
+    <div class="manifesto-inner">
+      <p class="section-label">Our commitment</p>
+      <h2 class="section-title">Security is not a layer on top of compliance. Compliance is a byproduct of security.</h2>
+
+      <div class="manifesto-body">
+        <div class="manifesto-point">
+          <h4>We secure first, certify second.</h4>
+          <p>Every framework we help you achieve — SOC 2, HIPAA, ISO 27001, PCI — is built on controls that actually work. The certificate is the proof, not the product.</p>
+        </div>
+        <div class="manifesto-point">
+          <h4>We don't compress the work. We do the work.</h4>
+          <p>You can't get genuinely secure in 48 hours. Anyone who tells you otherwise is selling you a report, not security. We tell you the truth about your gaps and fix them properly.</p>
+        </div>
+        <div class="manifesto-point">
+          <h4>We cover all seven layers — because attackers don't stay in one lane.</h4>
+          <p>Cloud infrastructure, application security, supply chain, identity, people, security operations, physical — all covered. A SOC 2 that only looks at one layer isn't a SOC 2 that protects you.</p>
+        </div>
+        <div class="manifesto-point">
+          <h4>Your customers and regulators will test your report. We make sure it holds.</h4>
+          <p>A Fortune 500 security team, an FFIEC examiner, or a HIPAA auditor will look past the PDF. We prepare you for the scrutiny, not just the ceremony.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <h2 class="cta-title">You've outgrown<br />compliance theatre.</h2>
+    <p class="cta-sub">
+      Whether you're migrating off Delve or starting fresh — let's build security that actually protects you and compliance that actually means something.
+    </p>
+    <a href="https://konfirmity.com" target="_blank" rel="noopener" class="cta-btn">
+      Get started at Konfirmity.com →
+    </a>
+    <p class="cta-note">No rubber stamps. No shortcuts. Just real security.</p>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>
+      An initiative by <a href="https://konfirmity.com" target="_blank" rel="noopener">Konfirmity</a> — Security Coverage across all 7 layers.
+      &nbsp;·&nbsp; byebyedelve.com
+    </p>
+  </footer>
+
+</body>
+</html>
